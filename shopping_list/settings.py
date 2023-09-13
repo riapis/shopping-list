@@ -83,12 +83,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}
+
+# Set database settings automatically using DATABASE_URL.
 if PRODUCTION:
     DATABASES = {
         'default': env.db('DATABASE_URL')
     }
     DATABASES["default"]["ATOMIC_REQUESTS"] = True
-}
 
 
 # Password validation
